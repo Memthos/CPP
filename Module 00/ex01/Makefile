@@ -1,7 +1,7 @@
 CC=c++
 CFLAGS=-Werror -Wextra -Werror -std=c++98
 
-SRCS=phonebook.cpp
+SRCS=phonebook.cpp contact.cpp
 OBJS=$(SRCS:.c=.o)
 
 NAME=phonebook

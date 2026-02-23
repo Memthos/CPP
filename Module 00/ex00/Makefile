@@ -2,7 +2,7 @@ CC=c++
 CFLAGS=-Werror -Wextra -Werror -std=c++98
 
 SRCS=megaphone.cpp
-OBJS=megaphone.o
+OBJS=$(SRCS:.c=.o)
 
 NAME=megaphone
 

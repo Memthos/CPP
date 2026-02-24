@@ -2,23 +2,23 @@ CC=c++
 CFLAGS=-Werror -Wextra -Werror -std=c++98
 
 SRCS=megaphone.cpp
-OBJS=$(SRCS:.c=.o)
+OBJS=$(SRCS:.cpp=.o)
 
 NAME=megaphone
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $@ -o $<
+%.o: %.cpp
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -drf $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -drf $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

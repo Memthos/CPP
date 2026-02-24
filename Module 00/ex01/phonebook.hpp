@@ -4,16 +4,21 @@
 # define __PHONEBOOK_H__
 
 # include "contact.hpp"
+# include <iostream>
+# include <iomanip>
 
 class PhoneBook
 {
-	public:
-		PhoneBook ();
-		~PhoneBook ();
-
 	private:
-		Contact	_contacts[8];
-		int		_maxContact;
+		Contact				_contacts[8];
+		static const int	_maxContact = 8;
+		int					_curContact;
+
+	public:
+		PhoneBook();
+		int		getCurContact();
+		void	addContact(Contact user);
+		Contact	getContact(int i);
 };
 
 #endif

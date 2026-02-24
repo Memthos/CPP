@@ -1,24 +1,24 @@
 CC=c++
 CFLAGS=-Werror -Wextra -Werror -std=c++98
 
-SRCS=phonebook.cpp contact.cpp
-OBJS=$(SRCS:.c=.o)
+SRCS=main.cpp phonebook.cpp contact.cpp
+OBJS=$(SRCS:.cpp=.o)
 
 NAME=phonebook
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $@ -o $<
+%.o: %.cpp
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -drf $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -drf $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

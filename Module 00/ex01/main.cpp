@@ -32,38 +32,64 @@ void	search(PhoneBook &list)
 	std::string	input;
 
 	std::cout << "\033[2J\033[1;1H";
-	std::cout << std::setw(10);
 	while (i < list.getCurContact())
 	{
-		j = 0;
-		while (list.getContact(i).get_f_name()[j] && j < 9)
-			std::cout << list.getContact(i).get_f_name()[j++];
-		if (list.getContact(i).get_f_name()[j])
-			std::cout << ".";
-		std::cout << " | ";
-		j = 0;
-		while (list.getContact(i).get_l_name()[j] && j < 9)
-			std::cout << list.getContact(i).get_l_name()[j++];
-		if (list.getContact(i).get_l_name()[j])
-			std::cout << ".";
-		std::cout << " | ";
-		j = 0;
-		while (list.getContact(i).get_n_name()[j] && j < 9)
-			std::cout << list.getContact(i).get_n_name()[j++];
-		if (list.getContact(i).get_n_name()[j])
-			std::cout << ".";
-		std::cout << " | ";
-		j = 0;
-		while (list.getContact(i).get_phone()[j] && j < 9)
-			std::cout << list.getContact(i).get_phone()[j++];
-		if (list.getContact(i).get_phone()[j])
-			std::cout << ".";
-		std::cout << " | ";
-		j = 0;
-		while (list.getContact(i).get_secret()[j] && j < 9)
-			std::cout << list.getContact(i).get_secret()[j++];
-		if (list.getContact(i).get_secret()[j])
-			std::cout << ".";
+		if (list.getContact(i).get_f_name().length() > 9)
+		{
+			j = 0;
+			while (list.getContact(i).get_f_name()[j] && j < 9)
+				std::cout << list.getContact(i).get_f_name()[j++];
+			if (list.getContact(i).get_f_name()[j])
+				std::cout << ".";
+		}
+		else
+		{
+			std::cout << std::setw(10);
+			std::cout << list.getContact(i).get_f_name();
+		}
+		std::cout << "|";
+		if (list.getContact(i).get_l_name().length() > 9)
+		{
+			j = 0;
+			while (list.getContact(i).get_l_name()[j] && j < 9)
+				std::cout << list.getContact(i).get_l_name()[j++];
+			if (list.getContact(i).get_l_name()[j])
+				std::cout << ".";
+		}
+		else
+		{
+			std::cout << std::setw(10);
+			std::cout << list.getContact(i).get_l_name();
+		}
+		std::cout << "|";
+		if (list.getContact(i).get_n_name().length() > 9)
+		{
+			j = 0;
+			while (list.getContact(i).get_n_name()[j] && j < 9)
+				std::cout << list.getContact(i).get_n_name()[j++];
+			if (list.getContact(i).get_n_name()[j])
+				std::cout << ".";
+		}
+		else
+		{
+			std::cout << std::setw(10);
+			std::cout << list.getContact(i).get_n_name();
+		}
+		std::cout << "|";
+		if (list.getContact(i).get_phone().length() > 9)
+		{
+			j = 0;
+			while (list.getContact(i).get_phone()[j] && j < 9)
+				std::cout << list.getContact(i).get_phone()[j++];
+			if (list.getContact(i).get_phone()[j])
+				std::cout << ".";
+		}
+		else
+		{
+			std::cout << std::setw(10);
+			std::cout << list.getContact(i).get_phone();
+		}
+		std::cout << "|";
 		std::cout << std::endl;
 		i++;
 	}

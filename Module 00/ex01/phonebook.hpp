@@ -5,6 +5,9 @@
 
 # include "contact.hpp"
 # include <iostream>
+# include <cctype>
+# include <cstdlib>
+# include <string>
 # include <iomanip>
 
 class PhoneBook

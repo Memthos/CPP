@@ -3,6 +3,7 @@
 PhoneBook::PhoneBook()
 {
 	_curContact = 0;
+	_maxContact = 8;
 }
 
 int PhoneBook::getCurContact()
@@ -19,4 +20,9 @@ void PhoneBook::addContact(Contact user)
 Contact PhoneBook::getContact(int i)
 {
 	return (_contacts[i]);
+}
+
+int PhoneBook::getMaxContact(void)
+{
+	return (_maxContact);
 }

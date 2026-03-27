@@ -14,12 +14,13 @@ class PhoneBook
 {
 	private:
 		Contact				_contacts[8];
-		static const int	_maxContact = 8;
+		int					_maxContact;
 		int					_curContact;
 
 	public:
 		PhoneBook();
 		int		getCurContact();
+		int		getMaxContact();
 		void	addContact(Contact user);
 		Contact	getContact(int i);
 };

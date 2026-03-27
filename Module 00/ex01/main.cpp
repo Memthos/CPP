@@ -7,27 +7,44 @@ int	int_len(int nb)
 	return (1 + int_len(nb / 10));
 }
 
-void	addUser(PhoneBook &list)
+int	is_empty(std::string str)
+{
+	int	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= 9 && str[i] <= 13) && str[i] != 32)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+std::string	get_input(std::string cur)
 {
 	std::string	input;
-	Contact		user;
+
+	while (is_empty(input))
+	{
+		std::cout << cur;
+		std::getline(std::cin, input);
+	}
+	return (input);
+}
+
+void	addUser(PhoneBook &list)
+{
+	Contact	user;
 
 	std::cout << "\033[2J\033[1;1H";
-	std::cout << "First Name : ";
-	std::getline(std::cin, input);
-	user.set_f_name(input);
-	std::cout << std::endl << "Last Name : ";
-	std::getline(std::cin, input);
-	user.set_l_name(input);
-	std::cout << std::endl << "Nickname : ";
-	std::getline(std::cin, input);
-	user.set_n_name(input);
-	std::cout << std::endl << "Phone Number : ";
-	std::getline(std::cin, input);
-	user.set_phone(input);
-	std::cout << std::endl << "Darkest Secret : ";
-	std::getline(std::cin, input);
-	user.set_secret(input);
+	user.set_f_name(get_input("First Name : "));
+	std::cout << std::endl;
+	user.set_l_name(get_input("Last Name : "));
+	std::cout << std::endl;
+	user.set_n_name(get_input("Nickname : "));
+	std::cout << std::endl;
+	user.set_phone(get_input("Phone Number : "));
+	std::cout << std::endl;
+	user.set_secret(get_input("Darkest Secret : "));
 	std::cout << std::endl;
 	list.addContact(user);
 }
@@ -62,6 +79,8 @@ int	valid_input(std::string str, PhoneBook &list)
 			return (0);
 		i++;
 	}
+	if (atoi(str.c_str()) > list.getMaxContact() - 1)
+		return (0);
 	if (atoi(str.c_str()) > list.getCurContact() - 1)
 		return (0);
 	return (1);
@@ -71,7 +90,7 @@ void	print_contacts(PhoneBook &list)
 {
 	int	i = 0;
 	std::cout << "\033[2J\033[1;1H";
-	while (i < list.getCurContact())
+	while (i < list.getCurContact() && i < list.getMaxContact())
 	{
 		std::cout << std::setw(10);
 		std::cout << i;

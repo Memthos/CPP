@@ -1,5 +1,5 @@
 CC=c++
-CFLAGS=-Werror -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror -std=c++98
 
 SRCS=main.cpp phonebook.cpp contact.cpp
 OBJS=$(SRCS:.cpp=.o)

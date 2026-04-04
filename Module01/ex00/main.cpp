@@ -7,4 +7,7 @@ int	main()
 	randomChump("foo");
 	bar = newZombie("bar");
 	delete bar;
+	randomChump("zombie");
+	bar = newZombie("death");
+	delete bar;
 }

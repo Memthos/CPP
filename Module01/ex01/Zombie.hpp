@@ -9,14 +9,14 @@
 class Zombie
 {
 	public:
+		Zombie();
 		Zombie(std::string name);
 		~Zombie(void);
-		void	announce(void);
+		void announce(void);
 	private:
-		std::string	_name;
+		std::string _name;
 };
 
-void	randomChump(std::string name);
-Zombie	*newZombie(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

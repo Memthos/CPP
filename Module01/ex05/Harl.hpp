@@ -17,4 +17,10 @@ class Harl
 		void	error(void);
 };
 
+typedef struct	s_func
+{
+	std::string	type;
+	void		(Harl::*cmd)(void);
+}				t_func;
+
 #endif

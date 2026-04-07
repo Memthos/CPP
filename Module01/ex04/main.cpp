@@ -2,49 +2,52 @@
 #include <fstream>
 #include <cstring>
 
+static const char	*get_outName(char *s)
+{
+	std::string	tmp;
+	char		*name;
+	tmp = s;
+	tmp.append(".replace");
+	name = new char[tmp.length() + 1];
+	return (std::strcpy(name, tmp.c_str()));
+}
+
 int	main(int argc, char **argv)
 {
-	std::ifstream	input;
-	std::ofstream	output;
-	char			*outName;
+	std::ifstream	infile;
+	std::ofstream	outfile;
 	std::string		str;
-	size_t			i;
+	size_t			idx;
+	const char		*name;
 
 	if (argc != 4)
 		return (1);
-	input.open(argv[1]);
-	if (!input.is_open())
-		return (1);
-	outName = new char[strlen(argv[1]) + 9];
-	strcpy(outName, argv[1]);
-	strcat(outName, ".replace");
-	output.open(outName);
-	if (!output.is_open())
+	infile.open(argv[1]);
+	name = get_outName(argv[1]);
+	outfile.open(name);
+	if (!infile.is_open() || !outfile.is_open())
 	{
-		delete[] outName;
-		input.close();
+		delete[] name;
+		if (infile.is_open())
+			infile.close();
+		if (outfile.is_open())
+			outfile.close();
 		return (1);
 	}
-	while (input)
+	while (infile)
 	{
-		std::getline(input, str);
-		i = 0;
-		while (str[i])
+		std::getline(infile, str);
+		idx = str.find(argv[2]);
+		while (idx != std::string::npos)
 		{
-			if (std::strncmp(&str[i], argv[2], strlen(argv[2])) == 0)
-			{
-				output << argv[3];
-				i += strlen(argv[2]);
-			}
-			else
-			{
-				output << str[i];
-				i++;
-			}
+			str.erase(idx, strlen(argv[2]));
+			str.insert(idx, argv[3]);
+			idx = str.find(argv[2]);
+
 		}
-		output << std::endl;
+		outfile << str << std::endl;
 	}
-	delete[] outName;
-	input.close();
-	output.close();
+	delete[] name;
+	infile.close();
+	outfile.close();
 }

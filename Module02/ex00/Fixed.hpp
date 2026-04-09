@@ -1,3 +1,8 @@
+#pragma once
+
+#ifndef __FIXED_H__
+# define __FIXED_H__
+
 #include <iostream>
 
 class	Fixed
@@ -13,3 +18,5 @@ class	Fixed
 		int					_nbValue;
 		static const int	_nbFracBits;
 };
+
+#endif

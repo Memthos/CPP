@@ -27,6 +27,8 @@ std::string	get_input(std::string cur)
 	{
 		std::cout << cur;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break ;
 	}
 	return (input);
 }
@@ -73,6 +75,8 @@ int	valid_input(std::string str, PhoneBook &list)
 {
 	int	i = 0;
 
+	if (str.empty())
+		return (0);
 	while (str[i])
 	{
 		if (!std::isdigit(str[i]))
@@ -117,6 +121,8 @@ void	search(PhoneBook &list)
 	{
 		std::cout << "INDEX    |    EXIT" << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break ;
 		if (input == "EXIT")
 			break ;
 		print_contacts(list);
@@ -139,6 +145,8 @@ int	main(void)
 
 	while (input != "EXIT")
 	{
+		if (std::cin.eof())
+			break ;
 		std::cout << "\033[2J\033[1;1H";
 		std::cout << "ADD    |    SEARCH    |    EXIT" << std::endl;
 		std::getline(std::cin, input);

@@ -123,7 +123,7 @@ void Account::_displayTimestamp(void)
 	values = *localtime(&time);
 
 	std::cout << "[";
-	std::cout << values.tm_year << values.tm_mon << values.tm_mday;
+	std::cout << values.tm_year + 1900 << values.tm_mon + 1 << values.tm_mday;
 	std::cout << "_" ;
 	std::cout << values.tm_hour << values.tm_min << values.tm_sec;
 	std::cout << "] ";

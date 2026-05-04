@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef __FIXED_H__
 # define __FIXED_H__
 

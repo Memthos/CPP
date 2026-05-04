@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef __HARL_H__
 # define __HARL_H__
 

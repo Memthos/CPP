@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef __CLAP_TRAP_H__
 # define __CLAP_TRAP_H__
 

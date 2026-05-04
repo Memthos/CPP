@@ -1,5 +1,5 @@
-#ifndef __FIXED_H__
-# define __FIXED_H__
+#ifndef FIXED_H
+# define FIXED_H
 
 #include <iostream>
 

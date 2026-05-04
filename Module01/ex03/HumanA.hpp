@@ -1,5 +1,5 @@
-#ifndef __HUMANA_H__
-# define __HUMANA_H__
+#ifndef HUMANA_H
+# define HUMANA_H
 
 # include <iostream>
 # include <string>

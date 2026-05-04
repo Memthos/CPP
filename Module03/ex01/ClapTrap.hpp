@@ -1,5 +1,5 @@
-#ifndef __CLAP_TRAP_H__
-# define __CLAP_TRAP_H__
+#ifndef CLAP_TRAP_H
+# define CLAP_TRAP_H
 
 # include <iostream>
 # include <string>

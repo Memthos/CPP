@@ -1,5 +1,5 @@
-#ifndef __PHONEBOOK_H__
-# define __PHONEBOOK_H__
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
 # include "contact.hpp"
 # include <iostream>

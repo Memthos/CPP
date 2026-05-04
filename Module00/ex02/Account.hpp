@@ -9,8 +9,8 @@
 
 
 #pragma once
-#ifndef __ACCOUNT_H__
-#define __ACCOUNT_H__
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
 
 // ************************************************************************** //
 //                               Account Class                                //
@@ -66,4 +66,4 @@ private:
 // ************************************************************************** //
 
 
-#endif /* __ACCOUNT_H__ */
+#endif /* ACCOUNT_H */

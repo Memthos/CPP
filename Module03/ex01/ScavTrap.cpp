@@ -17,7 +17,7 @@ ScavTrap ScavTrap::operator=(const ScavTrap &input)
 {
 	if (this != &input)
 		ClapTrap::operator=(input);
-	std::cout << "Claptrap " << input._name << " copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap " << input._name << " copy assignment operator called" << std::endl;
 	return (*this);
 }
 

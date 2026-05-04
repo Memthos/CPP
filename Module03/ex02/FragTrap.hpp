@@ -1,7 +1,7 @@
 #ifndef FRAG_TRAP_H
 # define FRAG_TRAP_H
 
-#include "ScavTrap.hpp"
+# include "ScavTrap.hpp"
 
 class FragTrap : public ScavTrap
 {

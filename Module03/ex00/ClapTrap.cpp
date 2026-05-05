@@ -7,8 +7,8 @@ ClapTrap::ClapTrap(std::string name): _name(name), _health(10), _energy(10), _da
 
 ClapTrap::ClapTrap(const ClapTrap &input)
 {
-	std::cout << "ClapTrap " << input._name << " copy constructor called" << std::endl;
 	*this = input;
+	std::cout << "ClapTrap " << input._name << " copy constructor called" << std::endl;
 }
 
 ClapTrap ClapTrap::operator=(const ClapTrap &input)

@@ -16,9 +16,7 @@ FragTrap::FragTrap(const FragTrap &input) : ClapTrap(input)
 FragTrap	FragTrap::operator=(const FragTrap &input)
 {
 	if (this != &input)
-	{
 		ClapTrap::operator=(input);
-	}
 	std::cout << "FragTrap " << input._name << " copy assignment operator called" << std::endl;
 	return (*this);
 }

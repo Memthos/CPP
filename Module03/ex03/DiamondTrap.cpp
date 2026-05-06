@@ -13,7 +13,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &input) : ClapTrap(input), ScavTrap(i
 	std::cout << "DiamondTrap " << input._name << " copy constructor called" << std::endl;
 }
 
-DiamondTrap DiamondTrap::operator=(const DiamondTrap &input)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &input)
 {
 	if (this != &input)
 	{

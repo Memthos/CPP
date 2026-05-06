@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(const ClapTrap &input)
 	std::cout << "ClapTrap " << input._name << " copy constructor called" << std::endl;
 }
 
-ClapTrap ClapTrap::operator=(const ClapTrap &input)
+ClapTrap& ClapTrap::operator=(const ClapTrap &input)
 {
 	if (this != &input)
 	{

@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(const ScavTrap &input) : ClapTrap(input)
 	std::cout << "ScavTrap " << input._name << " copy constructor called" << std::endl;
 }
 
-ScavTrap ScavTrap::operator=(const ScavTrap &input)
+ScavTrap& ScavTrap::operator=(const ScavTrap &input)
 {
 	if (this != &input)
 		ClapTrap::operator=(input);

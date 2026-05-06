@@ -13,7 +13,7 @@ FragTrap::FragTrap(const FragTrap &input) : ClapTrap(input)
 	std::cout << "FragTrap " << input._name << " copy constructor called" << std::endl;
 }
 
-FragTrap	FragTrap::operator=(const FragTrap &input)
+FragTrap&	FragTrap::operator=(const FragTrap &input)
 {
 	if (this != &input)
 		ClapTrap::operator=(input);

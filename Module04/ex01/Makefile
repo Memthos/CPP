@@ -1,7 +1,7 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
 
-SRCS=main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS=main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 NAME=brain

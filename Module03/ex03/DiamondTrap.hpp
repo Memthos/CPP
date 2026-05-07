@@ -1,8 +1,10 @@
 #ifndef DIAMOND_TRAP_H
 # define DIAMOND_TRAP_H
 
-# include "FragTrap.hpp"
 # include "ScavTrap.hpp"
+# include "FragTrap.hpp"
+# include <iostream>
+# include <string>
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {

@@ -32,7 +32,8 @@ int main()
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
 		AMateria *mat = new Cure();
-			src->learnMateria(mat);
+		src->learnMateria(mat);
+		delete mat;
 		std::cout << std::endl;
 		
 		std::cout << "2. Create 2 new characters and test deep copy:" << std::endl;
@@ -78,7 +79,5 @@ int main()
 		std::cout << std::endl;
 
 		delete dur2;
-
-		return (0); 
 	}
 }

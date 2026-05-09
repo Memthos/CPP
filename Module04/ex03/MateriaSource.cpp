@@ -7,7 +7,12 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource(MateriaSource &copy) {
-	*this = copy;
+	for (int i = 0; i < 4; i++) {
+		if (copy._memory[i])
+			_memory[i] = copy._memory[i]->clone();
+		else
+			_memory[i] = NULL;
+	}
 }
 
 MateriaSource&	MateriaSource::operator=(MateriaSource &copy) {

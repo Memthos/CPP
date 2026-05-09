@@ -3,16 +3,11 @@
 
 Ice::Ice() : AMateria::AMateria("ice") {}
 
-Ice::Ice(const Ice &materia) : AMateria::AMateria(materia) {
-	_type = "cat";
-}
+Ice::Ice(const Ice &materia) : AMateria::AMateria(materia) {}
 
 Ice&	Ice::operator=(const Ice &materia) {
 	if (this != &materia)
-	{
 		AMateria::operator=(materia);
-		_type = "cat";
-	}
 	return (*this);
 }
 

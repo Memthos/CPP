@@ -3,16 +3,11 @@
 
 Cure::Cure() : AMateria::AMateria("cure") {}
 
-Cure::Cure(const Cure &materia) : AMateria::AMateria(materia) {
-	_type = "cat";
-}
+Cure::Cure(const Cure &materia) : AMateria::AMateria(materia) {}
 
 Cure&	Cure::operator=(const Cure &materia) {
 	if (this != &materia)
-	{
 		AMateria::operator=(materia);
-		_type = "cat";
-	}
 	return (*this);
 }
 

@@ -42,7 +42,7 @@ void	Character::equip(AMateria* m) {
 			continue ;
 		else {
 			_inventory[i] = m;
-			std::cout << "Equipped " << m->getType() << " AMateria to " << i << " inventory index" << std::endl;
+			std::cout << "Equipped " << m->getType() << " AMateria at " << i << " inventory index" << std::endl;
 			return ;
 		}
 	}

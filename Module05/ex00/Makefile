@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
 SRCS=main.cpp Bureaucrat.cpp
 OBJS=$(SRCS:.cpp=.o)
 
-NAME=polymorphism
+NAME=ex00
 
 all: $(NAME)
 

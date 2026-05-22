@@ -7,9 +7,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade) 
 		throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &input) {
-	*this = input;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &input): _name(input._name), _grade(input._grade) {}
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &input) {
 	if (this != &input)

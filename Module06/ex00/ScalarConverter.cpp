@@ -5,6 +5,7 @@ ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(const ScalarConverter &input) {
 	(void)input;
 }
+
 ScalarConverter&	ScalarConverter::operator=(const ScalarConverter &input) {
 	(void)input;
 	return (*this);

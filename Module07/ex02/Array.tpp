@@ -5,7 +5,10 @@ Array<T>::Array() : _data(NULL), _size(0) {}
 
 template <typename T>
 Array<T>::Array(unsigned int nb) : _size(nb) {
-	_data = new T[_size]();
+	if (_size > 0)
+		_data = new T[_size]();
+	else
+		_data = NULL;
 }
 
 template <typename T>
@@ -16,7 +19,8 @@ Array<T>::Array(const Array &input) : _data(NULL), _size(0) {
 template <typename T>
 Array<T>&	Array<T>::operator=(const Array<T> &input) {
 	if (this != &input) {
-		delete[] _data;
+		if (data && _size > 0)
+			delete[] _data;
 		_size = input._size;
 		_data = new T[_size]();
 		for (size_t i = 0; i < _size; i++) {
@@ -29,7 +33,8 @@ Array<T>&	Array<T>::operator=(const Array<T> &input) {
 template <typename T>
 Array<T>::~Array()
 {
-	delete [] _data;
+	if (data && _size > 0)
+		delete [] _data;
 }
 
 template <typename T>

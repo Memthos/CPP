@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
 SRCS=main.cpp Span.cpp
 OBJS=$(SRCS:.cpp=.o)
 
-NAME=easyfind
+NAME=span
 
 all: $(NAME)
 

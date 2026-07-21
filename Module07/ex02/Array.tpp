@@ -19,7 +19,7 @@ Array<T>::Array(const Array &input) : _data(NULL), _size(0) {
 template <typename T>
 Array<T>&	Array<T>::operator=(const Array<T> &input) {
 	if (this != &input) {
-		if (data && _size > 0)
+		if (_data && _size > 0)
 			delete[] _data;
 		_size = input._size;
 		_data = new T[_size]();
@@ -33,7 +33,7 @@ Array<T>&	Array<T>::operator=(const Array<T> &input) {
 template <typename T>
 Array<T>::~Array()
 {
-	if (data && _size > 0)
+	if (_data && _size > 0)
 		delete [] _data;
 }
 

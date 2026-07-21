@@ -15,7 +15,7 @@ ScalarConverter::~ScalarConverter() {}
 
 static bool	isChar(std::string const &base)
 {
-	if (base.length() != 1 || !std::isdigit(base[0]))
+	if (base.length() != 1 || std::isdigit(base[0]))
 		return (false);
 	return (true);
 }

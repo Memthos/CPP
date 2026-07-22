@@ -7,14 +7,15 @@
 class RPN
 {
 	private:
-		std::stack<int>	_stack;
 		RPN();
 		RPN(const RPN &input);
 		RPN&	operator=(const RPN &input);
 		~RPN();
 	public:
 		static int	calc(std::string const &input);
-
-
+		class	Error : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
 };
 #endif

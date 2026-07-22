@@ -14,11 +14,11 @@ class	PmergeMe {
 		std::deque<int>		_deq;
 		template <typename C>
 		void	sortContainer(C &input) {
-		C			larger, smaller;
+		C						main, pend;
 		typename C::iterator	insertPos;
-		bool		isOdd = 0;
-		int			oddElement;
-		size_t		limit = input.size();
+		bool					isOdd = 0;
+		int						oddElement;
+		size_t					limit = input.size();
 
 		if (input.size() < 2)
 			return ;
@@ -30,24 +30,24 @@ class	PmergeMe {
 		}
 		for (size_t i = 0; i < limit; i += 2) {
 			if (input[i] > input[i + 1]) {
-				larger.push_back(input[i]);
-				smaller.push_back(input[i + 1]);
+				main.push_back(input[i]);
+				pend.push_back(input[i + 1]);
 			}
 			else {
-				larger.push_back(input[i + 1]);
-				smaller.push_back(input[i]);
+				main.push_back(input[i + 1]);
+				pend.push_back(input[i]);
 			}
 		}
-		sortContainer(larger);
-		for (size_t i = 0; i < smaller.size(); i++) {
-			insertPos = std::lower_bound(larger.begin(), larger.end(), smaller[i]);
-			larger.insert(insertPos, smaller[i]);
+		sortContainer(main);
+		for (size_t i = 0; i < pend.size(); i++) {
+			insertPos = std::lower_bound(main.begin(), main.end(), pend[i]);
+			main.insert(insertPos, pend[i]);
 		}
 		if (isOdd) {
-			insertPos = std::lower_bound(larger.begin(), larger.end(), oddElement);
-			larger.insert(insertPos, oddElement);
+			insertPos = std::lower_bound(main.begin(), main.end(), oddElement);
+			main.insert(insertPos, oddElement);
 		}
-		input = larger;
+		input = main;
 		}
 	public:
 		PmergeMe();

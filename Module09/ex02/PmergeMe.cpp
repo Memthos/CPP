@@ -37,11 +37,11 @@ void	PmergeMe::sort() {
 	double	vectorTime;
 	double	dequeTime;
 	timerStart = clock();
-	sortContainer(_vec);
+	_vec = sortContainer(_vec);
 	timerEnd = clock();
 	vectorTime = (double) (timerEnd - timerStart) / CLOCKS_PER_SEC * 1000000;
 	timerStart = clock();
-	sortContainer(_deq);
+	_deq = sortContainer(_deq);
 	timerEnd = clock();
 	dequeTime = (double) (timerEnd - timerStart) / CLOCKS_PER_SEC * 1000000;
 	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << vectorTime << " us" << std::endl;
@@ -66,4 +66,36 @@ void	PmergeMe::display() {
 		else
 			std::cout << std::endl << std::endl;
 	}
+}
+
+std::vector<size_t>	PmergeMe::jacobsthalSequence(size_t size) {
+	std::vector<size_t>	seq, res;
+	std::vector<bool>	used(size, false);
+	size_t				hi;
+	size_t				lo;
+
+	seq.push_back(0);
+	seq.push_back(1);
+	while (seq.back() < size) {
+		seq.push_back(seq.back() + 2 * seq[seq.size() - 2]);
+	}
+	if (size > 0) {
+		res.push_back(0);
+		used[0] = true;
+	}
+	for (size_t i = 2; i < seq.size(); ++i) {
+		hi = std::min(seq[i], size);
+		lo = seq[i - 1];
+		for (size_t j = hi; j > lo; --j) {
+			if (used[j - 1] == false) {
+				res.push_back(j - 1);
+				used[j - 1] = true;
+			}
+		}
+	}
+	for (size_t i = 0; i < size; ++i) {
+		if (used[i] == false)
+			res.push_back(i);
+	}
+	return (res);
 }

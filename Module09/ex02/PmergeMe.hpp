@@ -12,42 +12,48 @@ class	PmergeMe {
 	private:
 		std::vector<int>	_vec;
 		std::deque<int>		_deq;
+		std::vector<size_t>	jacobsthalSequence(size_t size);
 		template <typename C>
-		void	sortContainer(C &input) {
-		C						main, pend;
-		typename C::iterator	insertPos;
-		bool					isOdd = 0;
-		int						oddElement;
-		size_t					limit = input.size();
+		C	sortContainer(C input) {
+			C						main, pend, sorted;
+			std::vector<size_t>		seq;
+			typename C::iterator	insertPos, bound;
+			bool					isOdd = 0;
+			int						oddElement;
+			size_t					idx, limit = input.size();
 
-		if (input.size() < 2)
-			return ;
-		if (input.size() % 2)
-		{
-			--limit;
-			isOdd = 1;
-			oddElement = input.back();
-		}
-		for (size_t i = 0; i < limit; i += 2) {
-			if (input[i] > input[i + 1]) {
-				main.push_back(input[i]);
-				pend.push_back(input[i + 1]);
+			if (input.size() < 2)
+				return (input);
+			if (input.size() % 2)
+			{
+				--limit;
+				isOdd = 1;
+				oddElement = input.back();
+				input.pop_back();
 			}
-			else {
-				main.push_back(input[i + 1]);
-				pend.push_back(input[i]);
+			for (size_t i = 0; i < limit; i += 2) {
+				if (input[i] > input[i + 1]) {
+					main.push_back(input[i]);
+					pend.push_back(input[i + 1]);
+				}
+				else {
+					main.push_back(input[i + 1]);
+					pend.push_back(input[i]);
+				}
 			}
-		}
-		sortContainer(main);
-		for (size_t i = 0; i < pend.size(); i++) {
-			insertPos = std::lower_bound(main.begin(), main.end(), pend[i]);
-			main.insert(insertPos, pend[i]);
-		}
-		if (isOdd) {
-			insertPos = std::lower_bound(main.begin(), main.end(), oddElement);
-			main.insert(insertPos, oddElement);
-		}
-		input = main;
+			sorted = sortContainer(main);
+			seq = jacobsthalSequence(pend.size());
+			for (size_t j = 0; j < seq.size(); j++) {
+				idx = seq[j];
+				bound = std::lower_bound(sorted.begin(), sorted.end(), main[idx]);
+				insertPos = std::lower_bound(sorted.begin(), bound, pend[idx]);
+				sorted.insert(insertPos, pend[idx]);
+			}
+			if (isOdd) {
+				insertPos = std::lower_bound(sorted.begin(), sorted.end(), oddElement);
+				sorted.insert(insertPos, oddElement);
+			}
+			return (sorted);
 		}
 	public:
 		PmergeMe();

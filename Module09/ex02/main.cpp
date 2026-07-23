@@ -6,8 +6,10 @@ int	main(int argc, char **argv) {
 	try {
 		PmergeMe	algo;
 		algo.parser(argv);
+		std::cout << "Before: " << std::endl << std::endl;
 		algo.display();
 		algo.sort();
+		std::cout << "After: " << std::endl << std::endl;
 		algo.display();
 	}
 	catch (std::exception &e) {

@@ -39,13 +39,13 @@ void	PmergeMe::sort() {
 	timerStart = clock();
 	_vec = sortContainer(_vec);
 	timerEnd = clock();
-	vectorTime = (double) (timerEnd - timerStart) / CLOCKS_PER_SEC * 1000000;
+	vectorTime = (double) (timerEnd - timerStart) * 1000 / CLOCKS_PER_SEC;
 	timerStart = clock();
 	_deq = sortContainer(_deq);
 	timerEnd = clock();
-	dequeTime = (double) (timerEnd - timerStart) / CLOCKS_PER_SEC * 1000000;
-	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << vectorTime << " us" << std::endl;
-    std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque  : " << dequeTime << " us" << std::endl;
+	dequeTime = (double) (timerEnd - timerStart) * 1000 / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << vectorTime << " ms" << std::endl;
+    std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque  : " << dequeTime << " ms" << std::endl;
 	std::cout << std::endl;
 }
 

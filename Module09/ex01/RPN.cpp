@@ -51,7 +51,7 @@ int	RPN::calc(std::string const &input) {
 		else
 			throw Error();
 	}
-	if (stack.size() > 1)
+	if (stack.size() != 1)
 		throw Error();
 	return (stack.top());
 }

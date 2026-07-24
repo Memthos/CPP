@@ -38,10 +38,10 @@ void	BitcoinExchange::parseFile(const char *filename, parseFunc func) {
 }
 
 void	BitcoinExchange::parseLine(std::string &line) {
-	const char	model[] = "xxxx-xx-xx,";
-	std::string	date;
-	float		value;
-	char		*endptr;
+	const std::string	model = "xxxx-xx-xx,";
+	std::string			date;
+	float				value;
+	char				*endptr;
 
 	for (int i = 0; i < 11; i++) {
 	if (model[i] == 'x' && std::isdigit(line[i]))
@@ -59,7 +59,7 @@ void	BitcoinExchange::parseLine(std::string &line) {
 }
 
 void	BitcoinExchange::printValue(std::string &line) {
-	const char								model[] = "xxxx-xx-xx | ";
+	const std::string						model = "xxxx-xx-xx | ";
 	std::string								date_part;
 	std::string								value_part;
 	float									input_value;
@@ -98,16 +98,16 @@ void	BitcoinExchange::printValue(std::string &line) {
 	}
 	else if (it->first != date_part)
 		--it;
-	std::cout << date_part << " =>" << value_part << " = " << it->second * input_value << std::endl;
+	std::cout << date_part << " => " << value_part << " = " << it->second * input_value << std::endl;
 }
 
 bool	BitcoinExchange::isValidDate(std::string &input) {
 	t_date	date;
 	int		maxDay;
 
-	date.day = std::atoi(input.c_str());
+	date.year = std::atoi(input.c_str());
 	date.month = std::atoi(input.c_str() + 5);
-	date.year = std::atoi(input.c_str() + 8);
+	date.day = std::atoi(input.c_str() + 8);
 	if (date.day < 1 || date.month < 1 || date.month > 12 || date.year < 0)
 		return (false);
 	switch (date.month)
@@ -127,7 +127,7 @@ bool	BitcoinExchange::isValidDate(std::string &input) {
 		default:
 			maxDay = 31;
 	}
-	if (maxDay > date.day)
+	if (maxDay < date.day)
 		return (false);
 	return (true);
 }
